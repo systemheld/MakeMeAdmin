@@ -1,0 +1,63 @@
+
+/* Class = "NSMenuItem"; title = "MakeMeAdmin"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "MakeMeAdmin";
+
+/* Class = "NSMenuItem"; title = "Quit MakeMeAdmin"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit MakeMeAdmin";
+
+/* Class = "NSMenuItem"; title = "About MakeMeAdmin"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About MakeMeAdmin";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSTextFieldCell"; title = "Welcome! \nThis assistant will guide you through the process of getting administrative rights on your mac. You just need to answer a few short questions. For your and our security these informations are safed!"; ObjectID = "AbL-hj-dCY"; */
+"AbL-hj-dCY.title" = "Welcome! \nThis assistant will guide you through the process of getting administrative rights on your mac. You just need to answer a few short questions. For your and our security these informations are safed!";
+
+/* Class = "NSMenuItem"; title = "zeige Log"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "zeige Log";
+
+/* Class = "NSTextFieldCell"; title = "Name"; ObjectID = "DaW-fV-zJZ"; */
+"DaW-fV-zJZ.title" = "Name";
+
+/* Class = "NSTextFieldCell"; title = "Computername"; ObjectID = "Ede-st-aTv"; */
+"Ede-st-aTv.title" = "Computername";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Hide MakeMeAdmin"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide MakeMeAdmin";
+
+/* Class = "NSButtonCell"; title = "Close"; ObjectID = "PUI-OY-ZwU"; */
+"PUI-OY-ZwU.title" = "Close";
+
+/* Class = "NSWindow"; title = "MakeMeAdmin"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "MakeMeAdmin";
+
+/* Class = "NSTextFieldCell"; placeholderString = "John Doe"; ObjectID = "VVt-ge-Se5"; */
+"VVt-ge-Se5.placeholderString" = "John Doe";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSTextFieldCell"; placeholderString = "I would like to install this amazing app, that is not available in your software store."; ObjectID = "XMb-wy-Em9"; */
+"XMb-wy-Em9.placeholderString" = "I would like to install this amazing app, that is not available in your software store.";
+
+/* Class = "NSTextFieldCell"; placeholderString = "john.doe@somesite.web"; ObjectID = "XPH-ag-M6q"; */
+"XPH-ag-M6q.placeholderString" = "john.doe@somesite.web";
+
+/* Class = "NSTextFieldCell"; title = "E-Mail"; ObjectID = "c0M-sG-y1b"; */
+"c0M-sG-y1b.title" = "E-Mail";
+
+/* Class = "NSButtonCell"; title = "Send"; ObjectID = "f7A-B7-LDD"; */
+"f7A-B7-LDD.title" = "Send";
+
+/* Class = "NSTextFieldCell"; title = "Explanation"; ObjectID = "fcX-mm-ZNF"; */
+"fcX-mm-ZNF.title" = "Explanation";
+
+/* Class = "NSMenu"; title = "MakeMeAdmin"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "MakeMeAdmin";
+
+/* Class = "NSTextFieldCell"; placeholderString = "computer.name.web"; ObjectID = "ve7-ut-hEc"; */
+"ve7-ut-hEc.placeholderString" = "computer.name.web";

@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D6371B251D6DDB0000195ED8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6371B271D6DDB0000195ED8 /* Localizable.strings */; };
+		D6371B281D6DDB0700195ED8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6371B2A1D6DDB0700195ED8 /* MainMenu.xib */; };
+		D648ED5B1D253CC2007045D9 /* MakeMeAdmin-remove.sh in Resources */ = {isa = PBXBuildFile; fileRef = D648ED5A1D253CC2007045D9 /* MakeMeAdmin-remove.sh */; };
+		D648ED5D1D254717007045D9 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D648ED5C1D254717007045D9 /* config.swift */; };
+		D68CC0E61A6EB1F200C85FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC0E51A6EB1F200C85FAC /* AppDelegate.swift */; };
+		D68CC0F71A6EB1F200C85FAC /* MakeMeAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68CC0F61A6EB1F200C85FAC /* MakeMeAdminTests.swift */; };
+		D68CC1051A6EB27200C85FAC /* FAUMac_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = D68CC1011A6EB27200C85FAC /* FAUMac_1024x1024.png */; };
+		D68CC1061A6EB27200C85FAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68CC1021A6EB27200C85FAC /* Images.xcassets */; };
+		D6AFF2511D6DDE9200493A72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6AFF2531D6DDE9200493A72 /* InfoPlist.strings */; };
+		D6AFF2561D6DDE9200493A72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6AFF2581D6DDE9200493A72 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D68CC0F11A6EB1F200C85FAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D68CC0D81A6EB1F200C85FAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D68CC0DF1A6EB1F200C85FAC;
+			remoteInfo = MakeMeAdmin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D648ED5A1D253CC2007045D9 /* MakeMeAdmin-remove.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "MakeMeAdmin-remove.sh"; sourceTree = "<group>"; };
+		D648ED5C1D254717007045D9 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		D68CC0E01A6EB1F200C85FAC /* MakeMeAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeMeAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68CC0E41A6EB1F200C85FAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D68CC0E51A6EB1F200C85FAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D68CC0F01A6EB1F200C85FAC /* MakeMeAdminTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakeMeAdminTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68CC0F51A6EB1F200C85FAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D68CC0F61A6EB1F200C85FAC /* MakeMeAdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMeAdminTests.swift; sourceTree = "<group>"; };
+		D68CC1011A6EB27200C85FAC /* FAUMac_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FAUMac_1024x1024.png; sourceTree = "<group>"; };
+		D68CC1021A6EB27200C85FAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D6AFF24B1D6DDC4600493A72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D6AFF24C1D6DDC5300493A72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		D6AFF24D1D6DDC6500493A72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6AFF24E1D6DDC7400493A72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6AFF2521D6DDE9200493A72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D6AFF2571D6DDE9200493A72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D6FD44721D63134200ED788E /* putAdminRequest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = putAdminRequest.py; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D68CC0DD1A6EB1F200C85FAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68CC0ED1A6EB1F200C85FAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D648ED591D253C9E007045D9 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				D6FD44721D63134200ED788E /* putAdminRequest.py */,
+				D648ED5A1D253CC2007045D9 /* MakeMeAdmin-remove.sh */,
+				D6371B2A1D6DDB0700195ED8 /* MainMenu.xib */,
+				D6371B271D6DDB0000195ED8 /* Localizable.strings */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
+		D68CC0D71A6EB1F200C85FAC = {
+			isa = PBXGroup;
+			children = (
+				D68CC0E21A6EB1F200C85FAC /* MakeMeAdmin */,
+				D68CC0F31A6EB1F200C85FAC /* MakeMeAdminTests */,
+				D68CC0E11A6EB1F200C85FAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D68CC0E11A6EB1F200C85FAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D68CC0E01A6EB1F200C85FAC /* MakeMeAdmin.app */,
+				D68CC0F01A6EB1F200C85FAC /* MakeMeAdminTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D68CC0E21A6EB1F200C85FAC /* MakeMeAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				D648ED591D253C9E007045D9 /* Ressources */,
+				D68CC0E51A6EB1F200C85FAC /* AppDelegate.swift */,
+				D648ED5C1D254717007045D9 /* config.swift */,
+				D68CC1021A6EB27200C85FAC /* Images.xcassets */,
+				D68CC0E31A6EB1F200C85FAC /* Supporting Files */,
+			);
+			path = MakeMeAdmin;
+			sourceTree = "<group>";
+		};
+		D68CC0E31A6EB1F200C85FAC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6AFF2581D6DDE9200493A72 /* InfoPlist.strings */,
+				D68CC1011A6EB27200C85FAC /* FAUMac_1024x1024.png */,
+				D68CC0E41A6EB1F200C85FAC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D68CC0F31A6EB1F200C85FAC /* MakeMeAdminTests */ = {
+			isa = PBXGroup;
+			children = (
+				D68CC0F61A6EB1F200C85FAC /* MakeMeAdminTests.swift */,
+				D68CC0F41A6EB1F200C85FAC /* Supporting Files */,
+			);
+			path = MakeMeAdminTests;
+			sourceTree = "<group>";
+		};
+		D68CC0F41A6EB1F200C85FAC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6AFF2531D6DDE9200493A72 /* InfoPlist.strings */,
+				D68CC0F51A6EB1F200C85FAC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D68CC0DF1A6EB1F200C85FAC /* MakeMeAdmin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D68CC0FA1A6EB1F200C85FAC /* Build configuration list for PBXNativeTarget "MakeMeAdmin" */;
+			buildPhases = (
+				D68CC0DC1A6EB1F200C85FAC /* Sources */,
+				D68CC0DD1A6EB1F200C85FAC /* Frameworks */,
+				D68CC0DE1A6EB1F200C85FAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MakeMeAdmin;
+			productName = MakeMeAdmin;
+			productReference = D68CC0E01A6EB1F200C85FAC /* MakeMeAdmin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D68CC0EF1A6EB1F200C85FAC /* MakeMeAdminTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D68CC0FD1A6EB1F200C85FAC /* Build configuration list for PBXNativeTarget "MakeMeAdminTests" */;
+			buildPhases = (
+				D68CC0EC1A6EB1F200C85FAC /* Sources */,
+				D68CC0ED1A6EB1F200C85FAC /* Frameworks */,
+				D68CC0EE1A6EB1F200C85FAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D68CC0F21A6EB1F200C85FAC /* PBXTargetDependency */,
+			);
+			name = MakeMeAdminTests;
+			productName = MakeMeAdminTests;
+			productReference = D68CC0F01A6EB1F200C85FAC /* MakeMeAdminTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D68CC0D81A6EB1F200C85FAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Kett, Oliver";
+				TargetAttributes = {
+					D68CC0DF1A6EB1F200C85FAC = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					D68CC0EF1A6EB1F200C85FAC = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = D68CC0DF1A6EB1F200C85FAC;
+					};
+				};
+			};
+			buildConfigurationList = D68CC0DB1A6EB1F200C85FAC /* Build configuration list for PBXProject "MakeMeAdmin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				de,
+			);
+			mainGroup = D68CC0D71A6EB1F200C85FAC;
+			productRefGroup = D68CC0E11A6EB1F200C85FAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D68CC0DF1A6EB1F200C85FAC /* MakeMeAdmin */,
+				D68CC0EF1A6EB1F200C85FAC /* MakeMeAdminTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D68CC0DE1A6EB1F200C85FAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6371B251D6DDB0000195ED8 /* Localizable.strings in Resources */,
+				D6AFF2561D6DDE9200493A72 /* InfoPlist.strings in Resources */,
+				D68CC1061A6EB27200C85FAC /* Images.xcassets in Resources */,
+				D648ED5B1D253CC2007045D9 /* MakeMeAdmin-remove.sh in Resources */,
+				D68CC1051A6EB27200C85FAC /* FAUMac_1024x1024.png in Resources */,
+				D6371B281D6DDB0700195ED8 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68CC0EE1A6EB1F200C85FAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6AFF2511D6DDE9200493A72 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D68CC0DC1A6EB1F200C85FAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D648ED5D1D254717007045D9 /* config.swift in Sources */,
+				D68CC0E61A6EB1F200C85FAC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68CC0EC1A6EB1F200C85FAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68CC0F71A6EB1F200C85FAC /* MakeMeAdminTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D68CC0F21A6EB1F200C85FAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D68CC0DF1A6EB1F200C85FAC /* MakeMeAdmin */;
+			targetProxy = D68CC0F11A6EB1F200C85FAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D6371B271D6DDB0000195ED8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6AFF24D1D6DDC6500493A72 /* de */,
+				D6AFF24E1D6DDC7400493A72 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D6371B2A1D6DDB0700195ED8 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6AFF24B1D6DDC4600493A72 /* Base */,
+				D6AFF24C1D6DDC5300493A72 /* de */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D6AFF2531D6DDE9200493A72 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6AFF2521D6DDE9200493A72 /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D6AFF2581D6DDE9200493A72 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6AFF2571D6DDE9200493A72 /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D68CC0F81A6EB1F200C85FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D68CC0F91A6EB1F200C85FAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D68CC0FB1A6EB1F200C85FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				INFOPLIST_FILE = MakeMeAdmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-erlangen.rrze.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D68CC0FC1A6EB1F200C85FAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				INFOPLIST_FILE = MakeMeAdmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_SWIFT_FLAGS = "-DRELEASE";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-erlangen.rrze.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D68CC0FE1A6EB1F200C85FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MakeMeAdminTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-erlangen.rrze.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MakeMeAdmin.app/Contents/MacOS/MakeMeAdmin";
+			};
+			name = Debug;
+		};
+		D68CC0FF1A6EB1F200C85FAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MakeMeAdminTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-erlangen.rrze.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MakeMeAdmin.app/Contents/MacOS/MakeMeAdmin";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D68CC0DB1A6EB1F200C85FAC /* Build configuration list for PBXProject "MakeMeAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68CC0F81A6EB1F200C85FAC /* Debug */,
+				D68CC0F91A6EB1F200C85FAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D68CC0FA1A6EB1F200C85FAC /* Build configuration list for PBXNativeTarget "MakeMeAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68CC0FB1A6EB1F200C85FAC /* Debug */,
+				D68CC0FC1A6EB1F200C85FAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D68CC0FD1A6EB1F200C85FAC /* Build configuration list for PBXNativeTarget "MakeMeAdminTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68CC0FE1A6EB1F200C85FAC /* Debug */,
+				D68CC0FF1A6EB1F200C85FAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D68CC0D81A6EB1F200C85FAC /* Project object */;
+}

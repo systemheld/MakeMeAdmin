@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5296552E-0DD7-43E1-9B65-CFEE311EAEAA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MakeMeAdmin</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BBA270E4D0C4EA762B90EC6C8CE57BAA5A40D45E</key>
+		<string>gitlab.rrze.fau.de:faumac/MakeMeAdmin.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MakeMeAdmin.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BBA270E4D0C4EA762B90EC6C8CE57BAA5A40D45E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>gitlab.rrze.fau.de:faumac/MakeMeAdmin.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BBA270E4D0C4EA762B90EC6C8CE57BAA5A40D45E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BBA270E4D0C4EA762B90EC6C8CE57BAA5A40D45E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MakeMeAdmin</string>
+		</dict>
+	</array>
+</dict>
+</plist>
