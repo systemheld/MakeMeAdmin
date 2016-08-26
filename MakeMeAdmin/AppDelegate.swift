@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         if NSFileManager.defaultManager().fileExistsAtPath(Config.logFile) {
             NSTask.launchedTaskWithLaunchPath("/usr/bin/open", arguments: ["-a", "Console", Config.logFile])
         } else {
-            showWarning("Es wurde noch keine Logdatei angelegt. Wahrscheinlich verwendest du MakeMeAdmin zum ersten mal.", buttonText: NSLocalizedString("Ok", comment: "aknowledge this message"), completionHandler: nil)
+            showWarning(NSLocalizedString("There is no log file. Is this the first time you run this?", comment: "no log file was created until now"), buttonText: NSLocalizedString("Ok", comment: "aknowledge this message"), completionHandler: nil)
         }
     }
 
@@ -39,7 +39,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         
         // check if we are root
         if getuid() != 0 {
-            showWarning("Anwendung kann nur über den FAUmac Self Service gestartet werden!", buttonText: NSLocalizedString("Close", comment: "Close the application"), completionHandler: nil)
+            showWarning(NSLocalizedString("This application may be run only from FAUmac Self Service!", comment: "For security reasons this application does not have the setuid bit set. It must be run from root in some way, we use JAMF Self Service for that."), buttonText: NSLocalizedString("Close", comment: "Close the application"), completionHandler: { _ in
+                self.quit()
+            })
         } else {
             // jump into reason field
             self.window?.makeFirstResponder(textFieldReason)

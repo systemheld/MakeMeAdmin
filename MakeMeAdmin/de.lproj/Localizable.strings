@@ -13,6 +13,12 @@
 /* the server had an error processing or the user is not eligible to have admin rights */
 "Server returned an error. Are you eligible for getting admin rights?" = "Der Server lieferte einen Fehler zurück. Bitte wende dich an das FAUmac-Team um weitere Unterstützung zu erhalten.";
 
+/* no log file was created until now */
+"There is no log file. Is this the first time you run this?" = "Es wurde noch keine Logdatei angelegt. Wahrscheinlich verwendest du MakeMeAdmin zum ersten mal.";
+
+/* For security reasons this application does not have the setuid bit set. It must be run from root in some way, we use JAMF Self Service for that. */
+"This application may be run only from FAUmac Self Service!" = "Diese Anwendung kann nur über den FAUmac Self Service gestartet werden!";
+
 /* Inform the user that he has the right to administer this computer for 30 minutes */
 "You have now Admin Rights for 30 minutes! Run this utility againt to gain another 30 minutes" = "Du hast nun für 30 Minuten Administrationsrechte. Du kannst diesen Assistenten jeder wieder ausführen, um die Zeit zu verlängern.";
 
