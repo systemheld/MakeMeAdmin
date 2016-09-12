@@ -23,9 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     
     // open log from main menu
-    @IBAction func showLogfile(sender: AnyObject) {
-        if NSFileManager.defaultManager().fileExistsAtPath(Config.logFile) {
-            NSTask.launchedTaskWithLaunchPath("/usr/bin/open", arguments: ["-a", "Console", Config.logFile])
+    @IBAction func showLogfile(_ sender: AnyObject) {
+        if FileManager.default.fileExists(atPath: Config.logFile) {
+            Process.launchedProcess(launchPath: "/usr/bin/open", arguments: ["-a", "Console", Config.logFile])
         } else {
             showWarning(NSLocalizedString("There is no log file. Is this the first time you run this?", comment: "no log file was created until now"), buttonText: NSLocalizedString("Ok", comment: "aknowledge this message"), completionHandler: nil)
         }
@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
     override func awakeFromNib() {
     }
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
         // check if we are root
@@ -49,8 +49,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         
         // set textfields, of possible
         // get fqdn
-        if var fqdn = NSHost.currentHost().name {
-            fqdn = fqdn.stringByReplacingOccurrencesOfString(".local", withString: "")
+        if var fqdn = Host.current().name {
+            fqdn = fqdn.replacingOccurrences(of: ".local", with: "")
             textFieldComputerName.stringValue = fqdn
         }
 
@@ -60,23 +60,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
             let (realName, _) = getSTDOUTfromCommand("/usr/bin/dscl", arguments: [".", "read", "/Users/\(username)", "RealName"])
             if var realName = realName {
                 // remove garbage
-                realName = realName.stringByReplacingOccurrencesOfString("RealName:", withString: "")
-                realName = realName.stringByReplacingOccurrencesOfString("\n", withString: "")
-                realName = realName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                realName = realName.replacingOccurrences(of: "RealName:", with: "")
+                realName = realName.replacingOccurrences(of: "\n", with: "")
+                realName = realName.trimmingCharacters(in: CharacterSet.whitespaces)
                 textFieldName.stringValue = realName
             }
             // get Email
             let (EMail, _) = getSTDOUTfromCommand("/usr/bin/dscl", arguments: [".", "read", "/Users/\(username)", "EMailAddress"])
             if var EMail = EMail {
                 // remove garbage
-                EMail = EMail.stringByReplacingOccurrencesOfString("EMailAddress:", withString: "")
-                EMail = EMail.stringByReplacingOccurrencesOfString("\n", withString: "")
-                EMail = EMail.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                EMail = EMail.replacingOccurrences(of: "EMailAddress:", with: "")
+                EMail = EMail.replacingOccurrences(of: "\n", with: "")
+                EMail = EMail.trimmingCharacters(in: CharacterSet.whitespaces)
                 textFieldEMail.stringValue = EMail
             }
         }
         // disable until all fields are filled
-        buttonSend.enabled = false
+        buttonSend.isEnabled = false
         
         // delegates for NSTextFieldDelegate / controlTextDidChange()
         textFieldName.delegate = self
@@ -85,41 +85,41 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         textFieldComputerName.delegate = self
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
     // close App with close button
-    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
     
-    @IBAction func buttonClose(sender: AnyObject) {
+    @IBAction func buttonClose(_ sender: AnyObject) {
         self.quit()
     }
     
-    @IBAction func buttonSend(sender: AnyObject) {
+    @IBAction func buttonSend(_ sender: AnyObject) {
         // disable send button while doing network IO
-        self.buttonSend.enabled = false
+        self.buttonSend.isEnabled = false
         self.progressIndicator.startAnimation(self)
-        let request = NSMutableURLRequest(URL: NSURL(string: Config.putURL)!)
-        request.HTTPMethod = "PUT"
+        let request = NSMutableURLRequest(url: URL(string: Config.putURL)!)
+        request.httpMethod = "PUT"
         request.timeoutInterval = 5.0
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
         let data = "Name=\(self.textFieldName.stringValue)&EMail=\(self.textFieldEMail.stringValue)&Descr=\(self.textFieldReason.stringValue)&MacName=\(self.textFieldComputerName.stringValue)"
-        request.HTTPBody = (data as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        request.httpBody = (data as NSString).data(using: String.Encoding.utf8.rawValue)
         #if DEBUG
             NSLog("We are in Debug Mode, so we assume, that the API Call works!")
-            NSThread.sleepForTimeInterval(1.0)
+            Thread.sleep(forTimeInterval: 1.0)
             grantAdminRights()
         #else
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: {(response: NSHTTPURLResponse?, data: NSData?, error: NSError?) -> Void in
+            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue(), completionHandler: {(response: URLResponse?, data: Data?, error: NSError?) -> Void in
                 guard error == nil else {
                     self.showWarning(NSLocalizedString("Could not connect to the server to send your request. Please establish a network connection and try again.", comment: "could not send the request to our server for processing"), completionHandler: nil)
                     return
                 }
-                guard response.statusCode == 200 else {
+                guard response?.statusCode == 200 else {
                     self.showWarning(NSLocalizedString("Server returned an error. Are you eligible for getting admin rights?", comment: "the server had an error processing or the user is not eligible to have admin rights"), completionHandler: nil)
                     return
                 }
@@ -131,15 +131,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
     }
     
     // check if we can enable the send button
-    override func controlTextDidChange(obj: NSNotification) {
+    override func controlTextDidChange(_ obj: Notification) {
         if (textFieldName.stringValue != "" &&
             textFieldEMail.stringValue != "" &&
             textFieldReason.stringValue != "" &&
             textFieldComputerName.stringValue != "")
         {
-            buttonSend.enabled = true
+            buttonSend.isEnabled = true
         } else {
-            buttonSend.enabled = false
+            buttonSend.isEnabled = false
         }
     }
     
@@ -152,13 +152,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
             return
         }
         
-        var task = NSTask.launchedTaskWithLaunchPath("/bin/launchctl", arguments: ["list", Config.launchdJobIdentifier])
+        var task = Process.launchedProcess(launchPath: "/bin/launchctl", arguments: ["list", Config.launchdJobIdentifier])
         task.waitUntilExit()
         if task.terminationStatus == 0 {
-            NSTask.launchedTaskWithLaunchPath("/bin/launchctl", arguments: ["unload", "-w", "/Library/LaunchDaemons/\(Config.launchdJobIdentifier).plist"])
+            Process.launchedProcess(launchPath: "/bin/launchctl", arguments: ["unload", "-w", "/Library/LaunchDaemons/\(Config.launchdJobIdentifier).plist"])
         }
         
-        let scriptPath = NSBundle.mainBundle().pathForImageResource("MakeMeAdmin-remove.sh")
+        let scriptPath = Bundle.main.pathForImageResource("MakeMeAdmin-remove.sh")
         // write and launch launchd job
         let plist: String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
             "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n" +
@@ -178,24 +178,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
             "   </dict>\n" +
         "</plist>\n"
         do {
-            try plist.writeToFile("/Library/LaunchDaemons/\(Config.launchdJobIdentifier).plist", atomically: false, encoding: NSUTF8StringEncoding)
+            try plist.write(toFile: "/Library/LaunchDaemons/\(Config.launchdJobIdentifier).plist", atomically: false, encoding: String.Encoding.utf8)
         } catch {
             showWarning(NSLocalizedString("could not create launchd job!", comment: "there was an error creating the job that removes the administrative rights"), buttonText: NSLocalizedString("Close", comment: "Close the application"), completionHandler: { _ in
                 self.quit()
             })
         }
-        NSTask.launchedTaskWithLaunchPath("/bin/launchctl", arguments: ["load", "-w", "/Library/LaunchDaemons/\(Config.launchdJobIdentifier).plist"])
+        Process.launchedProcess(launchPath: "/bin/launchctl", arguments: ["load", "-w", "/Library/LaunchDaemons/\(Config.launchdJobIdentifier).plist"])
         
         // log admin request
-        let components = NSCalendar.currentCalendar().components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
+        let components = (Calendar.current as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: Date())
         let str = "\n\(components.day)/\(components.month)/\(components.year) \(components.hour):\(components.minute):\(components.second) by \(username)"
-        if let data = str.dataUsingEncoding(NSUTF8StringEncoding) {
-            if let f = NSFileHandle(forWritingAtPath: Config.logFile) {
+        if let data = str.data(using: String.Encoding.utf8) {
+            if let f = FileHandle(forWritingAtPath: Config.logFile) {
                 f.seekToEndOfFile()
-                f.writeData(data)
+                f.write(data)
             } else {
                 NSLog("cannot open \(Config.logFile) for writing.")
-                NSFileManager.defaultManager().createFileAtPath(Config.logFile, contents: data, attributes: nil)
+                FileManager.default.createFile(atPath: Config.logFile, contents: data, attributes: nil)
             }
         } else {
             NSLog("string to data cast failed!")
@@ -203,18 +203,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         
         // we save a machine readable plist which contains all users that have used MakeMeAdmin on this machine
         // /var/root/Library/Preferences/de.uni-erlangen.rrze.MakeMeAdmin.plist
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if var users = defaults.arrayForKey("enabledUsers") as? [String] {
+        let defaults = UserDefaults.standard
+        if var users = defaults.array(forKey: "enabledUsers") as? [String] {
             if !users.contains(username as String) {
                 users.append(username as String)
-                defaults.setObject(users, forKey: "enabledUsers")
+                defaults.set(users, forKey: "enabledUsers")
             }
         } else {
-            defaults.setObject(["\(username)"], forKey: "enabledUsers")
+            defaults.set(["\(username)"], forKey: "enabledUsers")
         }
         
         // add user to admin group
-        task = NSTask.launchedTaskWithLaunchPath("/usr/sbin/dseditgroup", arguments: ["-o", "edit", "-a", username as String!, "-t", "user", "admin"])
+        task = Process.launchedProcess(launchPath: "/usr/sbin/dseditgroup", arguments: ["-o", "edit", "-a", username as String!, "-t", "user", "admin"])
         task.waitUntilExit()
         if task.terminationStatus == 0 {
             showWarning(
@@ -232,9 +232,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         }
     }
     
-    func getSTDOUTfromCommand(path: String, arguments: [String]) -> (String?, Int) {
-        let pipe = NSPipe()
-        let task = NSTask()
+    func getSTDOUTfromCommand(_ path: String, arguments: [String]) -> (String?, Int) {
+        let pipe = Pipe()
+        let task = Process()
         task.launchPath = path
         task.arguments = arguments
         // if we use NSTask.launchedTaskWithLaunchPath() we cannot attach pipe because the task already runs when attaching
@@ -242,25 +242,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         task.standardError = pipe
         task.launch()
         task.waitUntilExit()
-        let stdout = NSString(data: pipe.fileHandleForReading.readDataToEndOfFile(), encoding: NSUTF8StringEncoding) as? String
+        let stdout = NSString(data: pipe.fileHandleForReading.readDataToEndOfFile(), encoding: String.Encoding.utf8.rawValue) as? String
         return (stdout, Int(task.terminationStatus))
     }
 
-    func showWarning(messageText: String, buttonText: String, completionHandler: ((NSModalResponse) -> Void)?) {
+    func showWarning(_ messageText: String, buttonText: String, completionHandler: ((NSModalResponse) -> Void)?) {
         self.progressIndicator.stopAnimation(self)
-        self.buttonSend.enabled = true
+        self.buttonSend.isEnabled = true
         let alert = NSAlert()
-        alert.alertStyle = .WarningAlertStyle
-        alert.addButtonWithTitle(buttonText)
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: buttonText)
         alert.messageText = messageText
         // we need to get back to main thread if we are not there
-        dispatch_async(dispatch_get_main_queue(), {
-            alert.beginSheetModalForWindow(self.window!, completionHandler: completionHandler)
+        DispatchQueue.main.async(execute: {
+            alert.beginSheetModal(for: self.window!, completionHandler: completionHandler)
         })
     }
     
     func quit() {
-        NSApplication.sharedApplication().terminate(self)
+        NSApplication.shared().terminate(self)
     }
 
 }
