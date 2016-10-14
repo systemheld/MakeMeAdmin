@@ -102,7 +102,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         // disable send button while doing network IO
         self.buttonSend.isEnabled = false
         self.progressIndicator.startAnimation(self)
-        let request = NSMutableURLRequest(url: URL(string: Config.putURL)!)
+        var request = URLRequest(url: URL(string: Config.putURL)!)
         request.httpMethod = "PUT"
         request.timeoutInterval = 5.0
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -114,19 +114,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
             Thread.sleep(forTimeInterval: 1.0)
             grantAdminRights()
         #else
-            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue(), completionHandler: {(response: URLResponse?, data: Data?, error: NSError?) -> Void in
+            URLSession.shared.dataTask(with: request, completionHandler: {(data: Data?, response: URLResponse?, error: Error?) -> Void in
                 guard error == nil else {
-                    self.showWarning(NSLocalizedString("Could not connect to the server to send your request. Please establish a network connection and try again.", comment: "could not send the request to our server for processing"), completionHandler: nil)
+                    self.showWarning(NSLocalizedString("Could not connect to the server to send your request. Please establish a network connection and try again.", comment: "could not send the request to our server for processing"),
+                                     buttonText: NSLocalizedString("Close", comment: "Close the application"),
+                                     completionHandler: nil)
                     return
                 }
-                guard response?.statusCode == 200 else {
-                    self.showWarning(NSLocalizedString("Server returned an error. Are you eligible for getting admin rights?", comment: "the server had an error processing or the user is not eligible to have admin rights"), completionHandler: nil)
+                guard let response = response as? HTTPURLResponse else {
+                    self.showWarning(NSLocalizedString("Server returned malformed content. Please try again later.", comment: "the server answer was not readable, either there were network problems or server problems."),
+                                     buttonText: NSLocalizedString("Close", comment: "Close the application"),
+                                     completionHandler: nil)
+                    return
+                }
+                guard response.statusCode == 200 else {
+                    self.showWarning(NSLocalizedString("Server returned an error. Are you eligible for getting admin rights?", comment: "the server had an error processing or the user is not eligible to have admin rights"),
+                                     buttonText: NSLocalizedString("Close", comment: "Close the application"),
+                                     completionHandler: nil)
                     return
                 }
                 
                 // we just check the returncode, you may add your own logic in here ...
                 self.grantAdminRights()
-            })
+            }).resume()
         #endif
     }
     
@@ -255,6 +265,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate { // we 
         alert.messageText = messageText
         // we need to get back to main thread if we are not there
         DispatchQueue.main.async(execute: {
+            // causes an autolayout error:
+            //
+            // [Layout] Detected missing constraints for <private>.  It cannot be placed because there are not enough constraints 
+            // to fully define the size and origin. Add the missing constraints, or set translatesAutoresizingMaskIntoConstraints=YES
+            // and constraints will be generated for you. If this view is laid out manually on macOS 10.12 and later, you may choose
+            // to not call [super layout] from your override. Set a breakpoint on DETECTED_MISSING_CONSTRAINTS to debug. This error 
+            // will only be logged once.
             alert.beginSheetModal(for: self.window!, completionHandler: completionHandler)
         })
     }
